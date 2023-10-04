@@ -1,0 +1,404 @@
+{
+  "user-mj6hvhtDwSXg": {
+    "SGP1": false,
+    "SBG5": [],
+    "UK1": [],
+    "DE1": [],
+    "GRA11": [],
+    "WAW1": [],
+    "BHS5": [
+      {
+        "ID": "0eb15cf2-42f8-4471-bb01-1a46c9c3a8bb",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_7",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.142.163",
+            "2607:5300:205:300::13be"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "1e66924b-ea51-4054-9103-3152f9fdc470",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_0",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.136.159",
+            "2607:5300:205:300::1c99"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "24c5cdb9-aef3-4906-941e-5713500d38b3",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_2",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.140.27",
+            "2607:5300:205:300::1966"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "280cc385-9ca1-4a32-af09-db507b71f6d7",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_8",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.139.48",
+            "2607:5300:205:300::a68"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "c54ca532-f599-48bc-b8f3-2d0a7a67441f",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_4",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.141.172",
+            "2607:5300:205:300::11f9"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "e4ba771b-3889-4bdb-b283-e47b173bd866",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_6",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.136.21",
+            "2607:5300:205:300::1e24"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "6af9df89-7076-4f84-b561-4633b2a7776e",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_1",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.136.63",
+            "2607:5300:205:300::e65"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "aa026bcb-be4c-4ac3-b6c3-7ad70078e3a5",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_5",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.143.115",
+            "2607:5300:205:300::bca"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "c29c61c8-859e-4931-ad93-79061b00820b",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_3",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.140.222",
+            "2607:5300:205:300::1ed1"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "dab96a57-a06f-45dd-a653-c5e41c1b11d6",
+        "Name": "xg_c8wQ400ao0OzDi4nqtUfsk_9",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.142.24",
+            "2607:5300:205:300::148c"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      }
+    ],
+    "SYD1": []
+  },
+  "user-Ntdegwhn66aJ": {
+    "WAW1": false,
+    "GRA11": [],
+    "SBG5": [],
+    "UK1": [],
+    "DE1": [],
+    "SGP1": [],
+    "BHS5": [
+      {
+        "ID": "03673ee2-5101-4e4d-865b-4ee82a3f6250",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_1",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.137.198",
+            "2607:5300:205:300::1f18"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "120a40fa-99d4-4c4a-aefb-507a977912d0",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_3",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.143.239",
+            "2607:5300:205:300::1bef"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "1d7b9be0-29c5-43a8-9761-136d0ea8d019",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_6",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.141.130",
+            "2607:5300:205:300::1d6c"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "210e57e4-1903-45f4-9632-3d702650ed49",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_5",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.141.100",
+            "2607:5300:205:300::1ccf"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "99cb136d-318b-407a-8d4d-333fb94f4430",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_9",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.141.44",
+            "2607:5300:205:300::5d2"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "ee417b6c-770a-4b9c-a7f5-c05cf30a618b",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_2",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.142.224",
+            "2607:5300:205:300::12fb"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "05452e8c-cbf0-47a9-9417-df4558c8a500",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_0",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.142.242",
+            "2607:5300:205:300::1f63"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "1dc083b5-5133-4f6e-a620-cab90bb53c73",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_7",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.140.59",
+            "2607:5300:205:300::1c67"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "2d670a04-da6a-448a-b351-754ef4ff684b",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_4",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.136.81",
+            "2607:5300:205:300::41b"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      },
+      {
+        "ID": "622c1194-2cfe-4ace-855a-278257dd089b",
+        "Name": "test__WenTAKclW7XfuLwnJK81uI_8",
+        "Status": "ACTIVE",
+        "Task State": null,
+        "Power State": 1,
+        "Networks": {
+          "Ext-Net": [
+            "148.113.138.14",
+            "2607:5300:205:300::1c9d"
+          ]
+        },
+        "Image Name": "Centos 7",
+        "Image ID": "80406c65-7e38-4ce4-8ca5-072e2bc6ad75",
+        "Flavor": "d2-2",
+        "Availability Zone": "nova",
+        "Host": null,
+        "Properties": {}
+      }
+    ],
+    "SYD1": []
+  }
+}

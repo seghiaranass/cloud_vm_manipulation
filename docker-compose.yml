@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  ovh-cloud:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - 6500:3000
+    volumes:
+      - ./openstack:/app/openstack
+    # container_name: openstackovh
+#     networks:
+#      openstack-ovh-network:
+#       ipv4_address: 172.0.172.1
+# networks:
+#   openstack-ovh-network:
+#     driver: bridge
+#     ipam:
+#       config:
+#         - subnet: 172.0.172.0/16
+    
