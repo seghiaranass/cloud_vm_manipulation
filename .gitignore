@@ -1,0 +1,4 @@
+authorized_keys
+id_rsa.pub
+id_rsa
+openstack/
