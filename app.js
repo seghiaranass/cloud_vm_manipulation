@@ -99,7 +99,9 @@ const deleteOpenStacksServers = async (openStackUser) => {
 // const { spawn } = require('child_process');
 const os = require('os');
 
-const regions = ["BHS5", "DE1", "GRA11", "SBG5", "UK1", "WAW1", "SGP1", "SYD1"];
+const regions = ["BHS5", "DE1", "GRA11", "SBG5", "UK1", "WAW1", "SGP1", "SYD1",
+"US-EAST-VA-1",
+"US-WEST-OR-1"];
 
 const getOpenStackServers = async () => {
   let servers = {};
@@ -171,7 +173,9 @@ const deleteOpenStackServers = async (openStackUser) => {
   try {
     console.log(openStackUser);
     
-    const regions = ["BHS5", "DE1", "GRA11", "SBG5", "UK1", "WAW1", "SGP1", "SYD1"];
+    const regions = ["BHS5", "DE1", "GRA11", "SBG5", "UK1", "WAW1", "SGP1", "SYD1" ,
+    "US-EAST-VA-1",
+    "US-WEST-OR-1"];
     let deletePromises = [];
     const accountRegionsServers = ovhServers[openStackUser];
     
@@ -356,8 +360,8 @@ const createInstance = async (
 };
 
 const accountServers = {
-  "user-mj6hvhtDwSXg": {},
-  "user-Ntdegwhn66aJ": {},
+  "user-yRhQhWf49pVd": {},
+  "user-JJQBq653PM5B": {},
 };
 
 const getAllServers = async () => {
@@ -375,6 +379,8 @@ const getAllServers = async () => {
       "WAW1",
       "SGP1",
       "SYD1",
+      "US-EAST-VA-1",
+      "US-WEST-OR-1"
     ];
 
     const account_servers = {};
@@ -393,121 +399,94 @@ const getAllServers = async () => {
 };
 
 app.post("/new-ovh-account", upload.single("openrc"), async (req, res) => {
-  console.log(req.body)
+  const { email: ovhEmail, password: ovhPassword, user: openStackUser } = req.body;
   const openRcFile = req.file;
-  const ovhEmail = req.body.email;
-  const ovhPassword = req.body.password;
-  const openStackUser = req.body.user;
-  const fileStream = fs.createReadStream(openRcFile.path);
-  const fileReader = readline.createInterface({
-    input: fileStream,
-    crlfDelay: Infinity,
-  });
-  let newOpenRcText = ""
-  fileReader.on("line", async (line) => {
-    
-    if (!line.startsWith("#")) {
-      if (line === "read -sr OS_PASSWORD_INPUT") {
-        // console.log(line);
-      } else if (line.includes("export OS_USERNAME")) {
-        newOpenRcText =
-          newOpenRcText + `export OS_USERNAME="${openStackUser}"` + "\n";
-      } else if (line === "export OS_PASSWORD=$OS_PASSWORD_INPUT") {
-        newOpenRcText =
-          newOpenRcText + `export OS_PASSWORD=${ovhPassword}` + "\n";
-      } else if (line.includes("export OS_REGION_NAME")) {
-        newOpenRcText = newOpenRcText + "export OS_REGION_NAME=$region_" + "\n";
-      } else {
-        newOpenRcText = newOpenRcText + line + "\n";
-      }
-    }
-  });
 
-  fileReader.on("close", async () => {
-    newOpenRcText =
-      newOpenRcText +
-      "if openstack keypair show SSHKEY_2 >/dev/null 2>&1; then" +
-      "\n";
-    newOpenRcText =
-      newOpenRcText + `  export OS_SSH_KEY_NAME="SSHKEY_2"` + "\n";
-    newOpenRcText = newOpenRcText + `else` + "\n";
-    newOpenRcText =
-      newOpenRcText +
-      `  openstack keypair create --public-key ~/.ssh/id_rsa.pub SSHKEY_2` +
-      "\n";
-    newOpenRcText = newOpenRcText + `  export OS_SSH_KEY_NAME=SSHKEY` + "\n";
-    newOpenRcText =
-      newOpenRcText + `  echo "SSH keypair SSHKEY created."` + "\n";
-    newOpenRcText = newOpenRcText + "fi" + "\n";
+  if (!openRcFile) {
+      return res.status(400).send('No file uploaded.');
+  }
 
-    fs.writeFile(
-      `./openstack/${openStackUser}.sh`,
-      newOpenRcText,
-      async (err) => {
-        if (err) {
+  let newOpenRcText = await transformOpenRcFile(openRcFile.path, openStackUser, ovhPassword);
+
+  fs.writeFile(`./openstack/${openStackUser}.sh`, newOpenRcText, async (err) => {
+      if (err) {
           console.error("Error writing file:", err);
-          return;
-        }
-
-        console.log("Data written to file successfully.");
-        // const command_result = await opensStackCommand('openstack',['image','list'])
-
-        try {
-          const command_result = await opensStackCommand(
-            openStackUser,
-            "openstack",
-            ["image", "list"],
-            "BHS5"
-          );
-          console.log("maybe : " + command_result);
-          // Handle the command result
-          if (command_result) {
-            const newOvhAccount = {
-              id: openRcId,
-              email: ovhEmail,
-              password: ovhPassword,
-              openStackUser,
-              openStackPassword,
-              path: `openstack/${openRcId}.sh`,
-            };
-
-            let foundIndex = ovhAccounts.findIndex(
-              (ovhAccount) => ovhAccount.openStackUser === openStackUser
-            );
-            if (foundIndex !== -1) {
-              ovhAccounts.splice(foundIndex, 1);
-              ovhAccounts.push(newOvhAccount);
-            } else {
-              ovhAccounts.push(newOvhAccount);
-            }
-
-            fs.writeFile(
-              `openstack/openstackAccounts.txt`,
-              JSON.stringify(ovhAccounts),
-              (err) => {
-                if (err) {
-                  console.error("Error writing file:", err);
-                  return;
-                }
-
-                console.log("Data written to file successfully.");
-              }
-            );
-          }
-          res.send(command_result);
-        } catch (error) {
-          console.error("Error executing opensStackCommand:", error);
-          // Handle the error gracefully without stopping the application
-        }
-        // console.log(command_result);
+          return res.status(500).send('Error writing file.');
       }
-    );
-    // console.log(newOpenRcText);
+
+      try {
+          const command_result = await opensStackCommand(openStackUser, "openstack", ["image", "list"], "BHS5");
+
+          const newOvhAccount = {
+              id: openRcFile.filename,
+              email: ovhEmail,
+              password: ovhPassword, // Still storing password in clear text!
+              openStackUser,
+              path: `openstack/${openRcFile.filename}.sh`,
+          };
+
+          updateOvhAccounts(openStackUser, newOvhAccount);
+
+          return res.send(command_result);
+      } catch (error) {
+          console.error("Error executing opensStackCommand:", error);
+          return res.status(500).send('Error executing command.');
+      }
+  });
+});
+
+async function transformOpenRcFile(filePath, openStackUser, ovhPassword) {
+  const fileStream = fs.createReadStream(filePath);
+  const fileReader = readline.createInterface({
+      input: fileStream,
+      crlfDelay: Infinity,
   });
 
-  // console.log(openStackUser);
-  // console.log(openStackPassword);
-});
+  let newOpenRcText = "";
+
+  for await (const line of fileReader) {
+      if (!line.startsWith("#")) {
+          if (line.includes("export OS_USERNAME")) {
+              newOpenRcText += `export OS_USERNAME="${openStackUser}"\n`;
+          } else if (line === "export OS_PASSWORD=$OS_PASSWORD_INPUT") {
+              newOpenRcText += `export OS_PASSWORD=${ovhPassword}\n`;
+          } else if (line.includes("export OS_REGION_NAME")) {
+              newOpenRcText += "export OS_REGION_NAME=$region_\n";
+          } else {
+              newOpenRcText += line + "\n";
+          }
+      }
+  }
+
+  // Add the SSH key check and creation code to the end
+  newOpenRcText += `if openstack keypair show SSHKEY_2 >/dev/null 2>&1; then
+export OS_SSH_KEY_NAME="SSHKEY_2"
+else
+openstack keypair create --public-key ~/.ssh/id_rsa.pub SSHKEY_2
+export OS_SSH_KEY_NAME=SSHKEY
+echo "SSH keypair SSHKEY created."
+fi\n`;
+
+  return newOpenRcText;
+}
+
+function updateOvhAccounts(openStackUser, newOvhAccount) {
+  const ovhAccountsFilePath = 'openstack/openstackAccounts.txt';
+  let ovhAccounts = [];
+
+  if (fs.existsSync(ovhAccountsFilePath)) {
+      const data = fs.readFileSync(ovhAccountsFilePath, 'utf8');
+      ovhAccounts = JSON.parse(data);
+  }
+
+  const foundIndex = ovhAccounts.findIndex(ovhAccount => ovhAccount.openStackUser === openStackUser);
+  if (foundIndex !== -1) {
+      ovhAccounts.splice(foundIndex, 1);
+  }
+  ovhAccounts.push(newOvhAccount);
+
+  fs.writeFileSync(ovhAccountsFilePath, JSON.stringify(ovhAccounts));
+}
 
 app.get("/get-ovh-accounts", (req, res) => {
   try {
@@ -522,7 +501,9 @@ app.post("/create-new-server", async (req, res) => {
   try {
     const {openRcFileName, image, flavor, network, region, instanceName, numberOfInstances} = req.body;
     const getOvhAccount = ovhAccounts.find(account => account.id === openRcFileName);
-    const allRegions = ["BHS5", "DE1", "GRA11", "SBG5", "UK1", "WAW1", "SGP1", "SYD1"]; // specify your actual regions here
+    const allRegions = ["BHS5", "DE1", "GRA11", "SBG5", "UK1", "WAW1", "SGP1", "SYD1",
+    "US-EAST-VA-1",
+    "US-WEST-OR-1"]; // specify your actual regions here
     const regionsToCreateIn = region === 'each' ? allRegions : [region.trim()];
 
     let serverInfos = [];
